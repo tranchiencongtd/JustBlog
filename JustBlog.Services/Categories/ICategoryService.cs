@@ -1,0 +1,14 @@
+﻿using JustBlog.ViewModels.Categories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace JustBlog.Services.Categories
+{
+    public interface ICategoryService
+    {
+        IEnumerable<CategoryViewModel> GetAll();
+    }
+}
