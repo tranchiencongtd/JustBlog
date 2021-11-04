@@ -13,8 +13,12 @@ namespace JustBlog.Services.Posts
     {
         IEnumerable<PostViewModel> GetAll();
 
-        Post FindPost(int year, int month, string urlSlug);
+        PostDetailViewModel GetPostByYearMonthUrlSlug(int year, int month, string urlSlug);
 
-        IEnumerable<PostViewModel> GetPostsByCategory(string slug);
+        IEnumerable<PostViewModel> GetPostsByCategoryUrlSlug(string slugUrl);
+
+        ResponseResult Create(CreatePostViewModel request);
+
+        ResponseResult Delete(int Id);
     }
 }

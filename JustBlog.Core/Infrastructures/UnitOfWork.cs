@@ -12,7 +12,7 @@ namespace JustBlog.Core.Infrastructures
     public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext context;
-        private TagRepository tagRepository;
+        private ITagRepository tagRepository;
         private IPostRepository postRepository;
         private ICategoryRepository categoryRepository;
 

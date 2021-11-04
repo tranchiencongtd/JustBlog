@@ -79,6 +79,30 @@
     <Compile Include="Migrations\202111020919161_addStatusEnum.designer.cs">
       <DependentUpon>202111020919161_addStatusEnum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111031221599_deletePostedOn.cs" />
+    <Compile Include="Migrations\202111031221599_deletePostedOn.designer.cs">
+      <DependentUpon>202111031221599_deletePostedOn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111040234287_deletefieldPost.cs" />
+    <Compile Include="Migrations\202111040234287_deletefieldPost.designer.cs">
+      <DependentUpon>202111040234287_deletefieldPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111040457367_fixTable.cs" />
+    <Compile Include="Migrations\202111040457367_fixTable.designer.cs">
+      <DependentUpon>202111040457367_fixTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111040515468_fixTable2.cs" />
+    <Compile Include="Migrations\202111040515468_fixTable2.designer.cs">
+      <DependentUpon>202111040515468_fixTable2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111040520483_fixTable3.cs" />
+    <Compile Include="Migrations\202111040520483_fixTable3.designer.cs">
+      <DependentUpon>202111040520483_fixTable3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111040734199_fixTable4.cs" />
+    <Compile Include="Migrations\202111040734199_fixTable4.designer.cs">
+      <DependentUpon>202111040734199_fixTable4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
@@ -90,6 +114,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JustBlog.Common\JustBlog.Common.csproj">
+      <Project>{E4948615-29B4-42ED-9FA8-666C18756934}</Project>
+      <Name>JustBlog.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JustBlog.Models\JustBlog.Models.csproj">
       <Project>{df6243ef-9ddd-4681-8b70-a4e00b8393c5}</Project>
       <Name>JustBlog.Models</Name>
@@ -110,6 +138,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111020919161_addStatusEnum.resx">
       <DependentUpon>202111020919161_addStatusEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111031221599_deletePostedOn.resx">
+      <DependentUpon>202111031221599_deletePostedOn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111040234287_deletefieldPost.resx">
+      <DependentUpon>202111040234287_deletefieldPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111040457367_fixTable.resx">
+      <DependentUpon>202111040457367_fixTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111040515468_fixTable2.resx">
+      <DependentUpon>202111040515468_fixTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111040520483_fixTable3.resx">
+      <DependentUpon>202111040520483_fixTable3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111040734199_fixTable4.resx">
+      <DependentUpon>202111040734199_fixTable4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

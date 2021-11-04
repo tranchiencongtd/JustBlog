@@ -15,5 +15,10 @@ namespace JustBlog.Core.Repositories
         {
 
         }
+        public Category GetCategoryByUrlSlug(string urlSlug)
+        {
+            var result = context.Categories.Where(c => c.UrlSlug == urlSlug).FirstOrDefault();
+            return result;
+        }
     }
 }

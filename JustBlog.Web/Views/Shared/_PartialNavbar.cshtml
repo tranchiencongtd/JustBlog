@@ -12,14 +12,13 @@
             <ul class="navbar-nav ml-auto">
                 @foreach (var item in Model)
                 {
-                <li class="nav-item">
-                    <a href="@Url.Action("ProductCategory", "Category", new { slug = @item.UrlSlug })" )>
-                        @item.Name
-                    </a>
-                </li>
+                    var url = $"/category/{item.UrlSlug}";
+                    <li class="nav-item">
+                        <a href="@url" )>
+                            @item.Name
+                        </a>
+                    </li>
                 }
-
-
             </ul>
         </div>
     </div>

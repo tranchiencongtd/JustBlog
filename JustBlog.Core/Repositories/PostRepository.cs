@@ -15,60 +15,19 @@ namespace JustBlog.Core.Repositories
         {
 
         }
-        public int CountPostsForCategory(string category)
-        {
-            var results = context.Posts.Where(p => p.Category.Name == category).ToList();
-            return results.Count();
-        }
-
-        public int CountPostsForTag(string tag)
-        {
-            var results = context.Posts.Where(p => p.Tags.Any(t => t.Name == tag)).ToList();
-            return results.Count();
-        }
 
         public Post FindPost(int year, int month, string urlSlug)
         {
-            var result = context.Posts.Where(p =>  p.PostedOn.Year == year 
-                                                && p.PostedOn.Month == month
+            var result = this.context.Posts.Where(p =>  p.CreatedOn.Year == year 
+                                                && p.CreatedOn.Month == month
                                                 && p.UrlSlug == urlSlug)
                                                     .FirstOrDefault();
             return result;
         }
 
-        public IList<Post> GetLatestPost(int size)
+        public IList<Post> GetPostsByCategoryUrlSlug(string urlSlug)
         {
-            var results = context.Posts.OrderByDescending(p => p.PostedOn).Take(size).ToList();
-            return results;
-        }
-
-        public IList<Post> GetPostsByCategory(string slug)
-        {
-            var results = context.Posts.Where(p => p.Category.UrlSlug == slug).ToList();
-            return results;
-        }
-
-        public IList<Post> GetPostsByMonth(DateTime monthYear)
-        {
-            var result = context.Posts.Where(p => p.PostedOn == monthYear).ToList();
-            return result;
-        }
-
-        public IList<Post> GetPostsByTag(string tag)
-        {
-            var results = context.Posts.Where(p => p.Tags.Any(t => t.Name == tag)).ToList();
-            return results;
-        }
-
-        public IList<Post> GetPublisedPosts()
-        {
-            var results = context.Posts.Where(p => p.Published).ToList();
-            return results;
-        }
-
-        public IList<Post> GetUnpublisedPosts()
-        {
-            var results = context.Posts.Where(p => !p.Published).ToList();
+            var results = this.context.Posts.Where(p => p.Category.UrlSlug == urlSlug).ToList();
             return results;
         }
     }

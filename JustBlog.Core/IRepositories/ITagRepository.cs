@@ -11,5 +11,7 @@ namespace JustBlog.Core.IRepositories
     public interface ITagRepository : IGenericRepository<Tag>
     {
         Tag GetTagByUrlSlug(string urlSlug);
+
+        IEnumerable<int> AddTagByString(string tags);
     }
 }

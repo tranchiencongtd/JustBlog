@@ -2,10 +2,7 @@
 using JustBlog.Models.Entities;
 using JustBlog.ViewModels.Categories;
 using JustBlog.ViewModels.Posts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using JustBlog.ViewModels.Tags;
 
 namespace JustBlog.Web.App_Start
 {
@@ -17,8 +14,16 @@ namespace JustBlog.Web.App_Start
             //    .ForMember(des => des.Title, opt => opt.MapFrom(src => src.Title))
             //    .ForMember(des => des.Content, opt => opt.MapFrom(src => src.Content))
             //    .ReverseMap();
+
+            // Post
             CreateMap<Post, PostViewModel>().ReverseMap();
+            CreateMap<Post, PostDetailViewModel>().ReverseMap();
+
+            //Category
             CreateMap<Category, CategoryViewModel>().ReverseMap();
+
+            //Tag
+            CreateMap<Tag, TagViewModel>().ReverseMap();
         }
 
     }

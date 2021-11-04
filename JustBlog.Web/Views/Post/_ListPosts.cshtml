@@ -4,34 +4,25 @@
 <div class="col-lg-8 col-md-10 mx-auto">
     @foreach (var item in Model)
     {
+        var url = $"/post/{item.CreatedOn.Year}/{item.CreatedOn.Month.ToString("00")}/{item.UrlSlug}";
         <div class="post-preview">
-
-            <a href="@Url.Action("Details", "Post", new { @year = item.PostedOn.Year, month = item.PostedOn.Month.ToString("00"), title = item.UrlSlug })" )>
-                <h2 class="post-title">
-                    @item.Title
-                </h2>
-            </a>
-            <p class="post-meta">
-                <span>
-                    Posted on @item.PostedOn
-                </span>
-                @*@{
-                    decimal cal = 0;
-                    if (item.RateCount != 0)
-                    {
-                        cal = (decimal)item.TotalRate / item.RateCount;
-
-                    }
-                    <span>with rate @cal </span>
-                }*@
-                <span>
-                    By @item.ViewCount (views)
-                </span>
-            </p>
-            <h3 class="post-desciption-short">
-                @item.ShortDescription
-            </h3>
-            <hr />
-        </div>
+        <a href="@url">
+            <h2 class="post-title">
+                @item.Title
+            </h2>
+        </a>
+        <p class="post-meta">
+            <span>
+                Posted on @item.CreatedOn
+            </span>
+            <span>
+                with @item.ViewCount (views)
+            </span>
+        </p>
+        <h3 class="post-desciption-short">
+            @item.ShortDescription
+        </h3>
+        <hr />
+    </div>
     }
 </div>

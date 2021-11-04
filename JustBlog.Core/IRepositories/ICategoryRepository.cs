@@ -10,5 +10,7 @@ namespace JustBlog.Core.IRepositories
 {
     public interface ICategoryRepository : IGenericRepository<Category>
     {
+        Category GetCategoryByUrlSlug(string urlSlug);
+       
     }
 }

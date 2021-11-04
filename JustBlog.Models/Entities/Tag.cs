@@ -22,6 +22,7 @@ namespace JustBlog.Models.Entities
 
         int Count { get; set; }
 
-        public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<PostTag> PostTags { get; set; }
+
     }
 }

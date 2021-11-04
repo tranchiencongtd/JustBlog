@@ -1,0 +1,82 @@
+﻿@using JustBlog.ViewModels.Categories
+@model CreateCategoryViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Scripts {
+    <script src="@Url.Content("~/Areas/Admin/Assets/js_custom/UrlHelper.js")"></script>
+}
+
+
+<div class="card mb-5 mb-xl-10">
+    <!--begin::Card header-->
+    <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+        <div class="card-title m-0">
+            <h3 class="fw-bolder m-0">CREATE NEW CATEGORY</h3>
+        </div>
+    </div>
+    <div id="kt_account_profile_details" class="collapse show">
+        <!--begin::Form-->
+        <form action="/admin/category/create" method="post" id="kt_account_profile_details_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+            <!--begin::Card body-->
+            <div class="card-body border-top p-9">
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    @Html.LabelFor(c => c.Name, new { @class = "col-lg-4 col-form-label required fw-bold fs-6" })
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <!--begin::Row-->
+                        <div class="row">
+                            <!--begin::Col-->
+                            <div class="col-lg-12 fv-row fv-plugins-icon-container">
+                                @Html.TextBoxFor(c => c.Name, new { @class = "form-control form-control-lg form-control-solid mb-3 mb-lg-0", placeholder = "Name", onchange = "changeUrl('Name','UrlSlug')" })
+                                @*<div class="fv-plugins-message-container invalid-feedback"></div>*@
+                                @Html.ValidationMessageFor(p => p.Name, null, new { @class = "fv-plugins-message-container invalid-feedback" })
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                        </div>
+                        <!--end::Row-->
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    @Html.LabelFor(p => p.UrlSlug, new { @class = "col-lg-4 col-form-label required fw-bold fs-6" })
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <!--begin::Row-->
+                        <div class="row">
+                            <!--begin::Col-->
+                            <div class="col-lg-12 fv-row fv-plugins-icon-container">
+                                @Html.TextBoxFor(p => p.UrlSlug, new { @class = "form-control form-control-lg form-control-solid mb-3 mb-lg-0", placeholder = "Link Url", @readonly = true })
+                                @Html.ValidationMessageFor(p => p.UrlSlug, null, new { @class = "fv-plugins-message-container invalid-feedback" })
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                        </div>
+                        <!--end::Row-->
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+            </div>
+
+            <div class="card-footer d-flex justify-content-end py-6 px-9">
+                <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Create</button>
+            </div>
+            <input type="hidden"><div></div>
+        </form>
+        <!--end::Form-->
+    </div>
+</div>
+
+

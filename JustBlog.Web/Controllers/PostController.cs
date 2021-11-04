@@ -27,7 +27,7 @@ namespace JustBlog.Web.Controllers
 
         public ActionResult Detail(int year, int month, string title)
         {
-            var post = this.postService.FindPost(year, month, title);
+            var post = this.postService.GetPostByYearMonthUrlSlug(year, month, title);
             if (post == null)
                 return HttpNotFound();
             return View(post);

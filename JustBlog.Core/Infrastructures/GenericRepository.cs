@@ -50,7 +50,5 @@ namespace JustBlog.Core.Infrastructures
         {
             return this.dbSet.ToList();
         }
-
-      
     }
 }

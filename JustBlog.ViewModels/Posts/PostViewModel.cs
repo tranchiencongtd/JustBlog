@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JustBlog.ViewModels.Tags;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace JustBlog.ViewModels.Posts
     {
         public int Id { get; set; }
 
-        public DateTime PostedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         public string Title { get; set; }
 
@@ -19,5 +20,9 @@ namespace JustBlog.ViewModels.Posts
         public int ViewCount { get; set; }
 
         public string UrlSlug { get; set; }
+
+        public string PostContent { get; set; }
+
+        
     }
 }

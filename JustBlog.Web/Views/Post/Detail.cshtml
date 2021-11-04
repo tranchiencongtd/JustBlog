@@ -1,5 +1,6 @@
-﻿@using JustBlog.Models.Entities
-@model Post
+﻿@using JustBlog.ViewModels.Posts
+@using JustBlog.Web.HtmlHelpers
+@model PostDetailViewModel
 
 @{
     ViewBag.Title = "Detail";
@@ -14,12 +15,13 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="post-heading">
                         <h1>@Html.DisplayTextFor(model => model.Title)</h1>
-                        <h2 class="subheading">@Html.DisplayTextFor(model => model.ShortDescription)</h2>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by
                             <a href="#"></a>
-                            on @Html.DisplayTextFor(model => model.PostedOn)
+                            on @Html.DisplayTextFor(model => model.CreatedOn)
                         </span>
+                        @Html.TagLink(Model.Tags)
                     </div>
                 </div>
             </div>

@@ -1,19 +1,20 @@
-﻿@using JustBlog.Models.Entities
-@model IEnumerable<Post>
+﻿@using JustBlog.ViewModels.Posts
+@model IEnumerable<PostViewModel>
+
 
 @{
-    ViewBag.Title = "Products";
+    ViewBag.Title = "Posts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @section header {
-    <header class="masthead" style="background-image: url('/Assets/img/home-bg.jpg')">
+    <header class="masthead" style="background-image: url('/Assets/img/post-sample-image.jpg')">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
-                       
+                        <h1>@ViewBag.CategoryName</h1>
                     </div>
                 </div>
             </div>
@@ -24,26 +25,22 @@
 <div class="col-lg-8 col-md-10 mx-auto">
     @foreach (var item in Model)
     {
+        var url = $"/post/{item.CreatedOn.Year}/{item.CreatedOn.Month.ToString("00")}/{item.UrlSlug}";
         <div class="post-preview">
-
-            <a href="@Url.Action("Details", "Post", new { @year = item.PostedOn.Year, month = item.PostedOn.Month.ToString("00"), title = item.UrlSlug })" )>
+            @*<a href="@Url.Action("Detail", "Post", new { @year = item.PostedOn.Year, month = item.PostedOn.Month.ToString("00"), title = item.UrlSlug })" )>
+                    <h2 class="post-title">
+                        @item.Title
+                    </h2>
+                </a>*@
+            <a href="@url">
                 <h2 class="post-title">
                     @item.Title
                 </h2>
             </a>
             <p class="post-meta">
                 <span>
-                    Posted on @item.PostedOn
+                    Posted on @item.CreatedOn
                 </span>
-                @{
-                    decimal cal = 0;
-                    if (item.RateCount != 0)
-                    {
-                        cal = (decimal)item.TotalRate / item.RateCount;
-
-                    }
-                    <span>with rate @cal </span>
-                }
                 <span>
                     By @item.ViewCount (views)
                 </span>

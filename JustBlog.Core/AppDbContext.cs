@@ -21,6 +21,7 @@ namespace JustBlog.Core
         public DbSet<Category> Categories { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<PostTag> PostTags { get; set; }
 
 
         public static AppDbContext Create()
@@ -31,14 +32,14 @@ namespace JustBlog.Core
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Post>()
-                       .HasMany<Tag>(t => t.Tags)
-                       .WithMany(p => p.Posts)
-                       .Map(pt => {
-                           pt.MapLeftKey("PostId");
-                           pt.MapRightKey("TagId");
-                           pt.ToTable("PostTagMap");
-                       });
+            //modelBuilder.Entity<Post>()
+            //           .HasMany<Tag>(t => t.Tags)
+            //           .WithMany(p => p.Posts)
+            //           .Map(pt => {
+            //               pt.MapLeftKey("PostId");
+            //               pt.MapRightKey("TagId");
+            //               pt.ToTable("PostTagMap");
+            //           });
         }
 
         public override int SaveChanges()

@@ -33,9 +33,11 @@ namespace JustBlog.Web.Controllers
             return PartialView("_PartialNavbar", categogies);
         }
 
-        public ActionResult ProductCategory(string slug)
+        public ActionResult PostCategory(string slug)
         {
-            var posts = this.postService.GetPostsByCategory(slug);
+            var posts = this.postService.GetPostsByCategoryUrlSlug(slug);
+            var category = this.categoryService.GetCategoryByUrlSlug(slug);
+            ViewBag.CategoryName = category.Name;
             if (posts == null)
                 return HttpNotFound();
             return View(posts);

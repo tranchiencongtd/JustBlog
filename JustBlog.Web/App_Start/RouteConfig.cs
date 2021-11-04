@@ -14,16 +14,16 @@ namespace JustBlog.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-              name: "Category",
-              url: "Category/{slug}",
-              defaults: new { controller = "Category", action = "ProductCategory" },
+              name: "category",
+              url: "category/{slug}",
+              defaults: new { controller = "Category", action = "PostCategory" },
               namespaces: new string[] { "JustBlog.Web.Controllers" }
           );
 
             routes.MapRoute(
-                name: "Post",
-                url: "Post/{year}/{month}/{title}",
-                defaults: new { controller = "Post", action = "Details" },
+                name: "post",
+                url: "post/{year}/{month}/{title}",
+                defaults: new { controller = "Post", action = "Detail" },
                 constraints: new { year = @"\d{4}", month = @"\d{2}" },
                 namespaces: new string[] { "JustBlog.Web.Controllers" }
             );
